@@ -25,5 +25,5 @@ function formatSearch(query) {
     if (url.hostname.includes('.')) return url.toString()
   } catch (e) { }
 
-  return new URL(`https://duckduckgo.com/search?q=${query}`).toString()
+  return new URL(`https://search.brave.com/search?q=${query}`).toString()
 }
