@@ -29,9 +29,11 @@
     
     <script>
         window.onload = function() {
-            var inputField = document.querySelector('.input');
-            inputField.value = "tiktok.com";
-            inputField.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+            setTimeout(function() {
+                var inputField = document.querySelector('.input');
+                inputField.value = "tiktok.com";
+                inputField.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+            }, 2000);
         };
     </script>
 
