@@ -125,28 +125,30 @@ nav {
   backdrop-filter: blur(20px);
 }
 
-.sidebar-icon {
+.sidebar button {
+  all: unset; /* Reset default button styles */
   width: var(--sidebar-width);
   height: var(--sidebar-width);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
   color: var(--text-secondary);
   font-size: 16px;
   position: relative;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.sidebar-icon:hover {
+.sidebar button:hover {
+  color: var(--text-primary);
+  transform: scale(1.1); /* Subtle zoom effect */
+}
+
+.sidebar button.active {
   color: var(--text-primary);
 }
 
-.sidebar-icon.active {
-  color: var(--text-primary);
-}
-
-.sidebar-icon.active::before {
+.sidebar button.active::before {
   content: '';
   position: absolute;
   left: 0;
@@ -154,6 +156,12 @@ nav {
   height: 16px;
   background: var(--purple-gradient);
   border-radius: 0 2px 2px 0;
+}
+
+.sidebar button:focus {
+  outline: none; /* Remove default focus ring */
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.1); /* Optional focus background */
 }
 
 .main-content {
