@@ -50,6 +50,22 @@
     <main class="main-content">
       <iframe id="main-iframe" src="../storage/discord.html" style="width: 100%; height: 100%; border: none; border-radius: 16px;"></iframe>
     </main>
+    <script>
+      function goBack() {
+        window.history.back(); 
+      }
+
+      function goForward() {
+        window.history.forward(); 
+      }
+
+      function navigateTo() {
+        const url = document.getElementById("search-input").value;
+        if (url) {
+          window.location.href = url;  
+        }
+      }
+    </script>
   </body>
 </html>
 
