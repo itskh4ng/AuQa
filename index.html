@@ -50,19 +50,18 @@
       <iframe id="main-iframe" src="search.html" style="width: 100%; height: 100%; border: none; border-radius: 16px;"></iframe>
     </main>
     <script>
-      const iframe = document.getElementById("main-iframe");
       function goBack() {
-        iframe.contentWindow.history.back();
+        window.history.back(); 
       }
 
       function goForward() {
-        iframe.contentWindow.history.forward();
+        window.history.forward(); 
       }
 
       function navigateTo() {
         const url = document.getElementById("search-input").value;
         if (url) {
-          iframe.src = url; 
+          window.location.href = url;  
         }
       }
     </script>
