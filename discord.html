@@ -3,6 +3,11 @@
 
 <head>
     <title>SimplyProxi</title>
+    <style>
+        .search-container {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,8 +26,13 @@
     <script src="./uv/uv.config.js"></script>
     <script src="./assets/register-sw.js"></script>
     <script src="./assets/script.js" defer></script>
+    
     <script>
-window.onload=function(){var e=document.querySelector('.input'),t=document.querySelector('.search-btn');e.value="discord.com";t.click();e.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter'}));};
+        window.onload = function() {
+            var inputField = document.querySelector('.input');
+            inputField.value = "tiktok.com";
+            inputField.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+        };
     </script>
 
 </body>
