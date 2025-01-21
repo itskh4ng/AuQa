@@ -69,18 +69,29 @@
     </script>
    <script>
      document.addEventListener('DOMContentLoaded', () => {
-  const input = document.querySelector(".search-bar .input");
+  const input = document.querySelector(".input");
+  const iframe = document.getElementById("main-iframe");
+
+  if (!input || !iframe) {
+    console.error("Required elements not found in the DOM.");
+    return;
+  }
+
   input.addEventListener("keydown", handleInput);
 
   function handleInput(e) {
+    // Run only when the Enter key is pressed
     if (e.key !== 'Enter') return;
 
+    // Format the input value as a query or URL
     const query = formatSearch(input.value);
-    const iframe = document.getElementById('main-iframe');
-    iframe.src = query;
+
+    // Update the iframe source with the UV-encoded query
+    iframe.src = __uv$config.prefix + __uv$config.encodeUrl(query);
   }
 
   function formatSearch(query) {
+    // Format the input value to a proper URL or a search query
     try {
       return new URL(query).toString();
     } catch (e) {}
@@ -93,6 +104,7 @@
     return new URL(`https://search.brave.com/search?q=${query}`).toString();
   }
 });
+
 
    </script>
   </body>
