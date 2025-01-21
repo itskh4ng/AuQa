@@ -2,7 +2,6 @@
     const input = document.getElementById("search-input");
     const iframe = document.getElementById("main-iframe");
 
-    // Check if elemenrs
     if (!input || !iframe) {
       console.error("Required elements not found in the DOM.");
       return;
