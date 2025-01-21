@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById("search-input");
+  const iframe = document.getElementById("main-iframe");
   input.addEventListener("keydown", handleInput)
 
   function handleInput(e) {
