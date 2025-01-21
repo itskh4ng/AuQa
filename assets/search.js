@@ -9,9 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Run the formatSearch function on the current value of the input
     const query = formatSearch(input.value)
 
-    // Change the src of the iframe with id 'main-iframe' instead of redirecting the page
-    const iframe = document.getElementById('main-iframe');
-    iframe.src = query;
+    // Redirect to         [   uv prefix    ] + [   encoded search query   ]
+    window.location.href = __uv$config.prefix + __uv$config.encodeUrl(query)
   }
 })
 
