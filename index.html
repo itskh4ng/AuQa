@@ -65,18 +65,6 @@
         }
       }
     </script>
-    <script var iframe = document.getElementById('main-iframe');
-if (iframe) {
-    var iframeDoc = iframe.contentWindow.document;
-
-    var script = iframeDoc.createElement('script');
-    script.src = "//cdn.jsdelivr.net/npm/eruda";
-    script.onload = function() {
-        iframe.contentWindow.eruda.init();
-    };
-    iframeDoc.body.appendChild(script);
-}
-</script>
   </body>
 </html>
 
