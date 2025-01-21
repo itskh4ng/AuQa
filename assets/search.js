@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const input = document.querySelector(".input")
+  const input = document.getElementById("search-input");
   input.addEventListener("keydown", handleInput)
 
   function handleInput(e) {
