@@ -65,28 +65,15 @@
         }
       }
     </script>
-    <script>// Get the iframe by its ID
-var iframe = document.getElementById('main-iframe'); 
-
-// Ensure the iframe exists
+    <script>
+      var iframe = document.getElementById('main-iframe');
 if (iframe) {
-    // Access the iframe's document
-    var iframeDoc = iframe.contentWindow.document;
-    
-    // Create a new <script> element for the eruda library
-    var script = iframeDoc.createElement('script');
+    var script = iframe.contentWindow.document.createElement('script');
     script.src = "https://cdn.jsdelivr.net/npm/eruda";
-    
-    // Append the script to the iframe's document body
-    iframeDoc.body.appendChild(script);
-    
-    // Initialize eruda when the script is loaded
-    script.onload = function() {
-        iframe.contentWindow.eruda.init();
-    };
-} else {
-    console.error("Iframe with ID 'main-iframe' not found.");
+    script.onload = function() { iframe.contentWindow.eruda.init(); };
+    iframe.contentWindow.document.body.appendChild(script);
 }
+
 </script>
   </body>
 </html>
