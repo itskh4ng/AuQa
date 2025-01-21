@@ -5,14 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
           console.error("Required elements not found in the DOM.");
           return;
         }
-  input.addEventListener("keydown", handleInput)
+  if (!input || !iframe) {
+          console.error("Required elements not found in the DOM.");
+          return;
+        }
 
-  function handleInput(e) {
-    // We only want the function to run if the key pressed is the Enter key
-    if (e.key !== 'Enter') return;
-
-    // Run the formatSearch function on the current value of the input
-    const query = formatSearch(input.value)
+        // Add an event listener for the 'keydown' event
+        input.addEventListener("keydown", (e) => {
+          // Trigger only when the Enter key is pressed
+          if (e.key === 'Enter') {
+            const query = formatSearch(input.value);
 
     // Redirect to         [   uv prefix    ] + [   encoded search query   ]
     iframe.src = __uv$config.prefix + __uv$config.encodeUrl(query)
