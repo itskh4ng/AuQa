@@ -27,6 +27,11 @@
       </div>
       <button class="nav-button"><i class="fa-solid fa-rotate-right"></i></button>
       <button class="nav-button" onclick="toggleSelect()"><i class="fa-solid fa-puzzle-piece"></i></button>
+       <select id="gamepad" name="game" style="display:block;" onchange="displaySelectedOption()">
+      <option value="geforce">geforce</option>
+      <option value="now.gg">now.gg</option>
+      <option value="ngg.lol">ngg.lol</option>
+       </select>
     </nav>
 
     <aside class="sidebar">
@@ -72,6 +77,7 @@
         }
       }
     </script>
+   <script>function displaySelectedOption(){var e=document.getElementById("gamepad").value,t=document.getElementById("main-iframe");e==="geforce"?t.src="../storage/geforce.html":e==="now.gg"?t.src="../storage/nowgg.html":e==="ngg.lol"&&(t.src="../storage/ngg.html");}</script>
   </body>
 </html>
 
