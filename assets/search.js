@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById("search-input");
   const iframe = document.getElementById("main-iframe");
+  if (!input || !iframe) {
+          console.error("Required elements not found in the DOM.");
+          return;
+        }
   input.addEventListener("keydown", handleInput)
 
   function handleInput(e) {
