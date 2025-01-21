@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const query = formatSearch(input.value)
 
     // Redirect to         [   uv prefix    ] + [   encoded search query   ]
-    window.location.href = __uv$config.prefix + __uv$config.encodeUrl(query)
+    iframe.src = __uv$config.prefix + __uv$config.encodeUrl(query)
   }
 })
 
