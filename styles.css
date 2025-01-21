@@ -44,7 +44,7 @@ nav {
   height: 28px;
   background: url('81C90148-FC53-476B-B712-41E783AD7945.png') no-repeat center/cover;
   border-radius: 8px;
-  opacity: 0.05;
+  opacity: 0.08;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
