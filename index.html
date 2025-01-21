@@ -68,23 +68,22 @@
       }
     </script>
    <script>
-     // Ensure the script runs after the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-  const input = document.getElementById("search-input"); // Target input by its ID
-  const iframe = document.getElementById("main-iframe"); // Target iframe by its ID
+     document.addEventListener('DOMContentLoaded', () => {
+  // Select the input element
+  const input = document.getElementById("search-input");
 
-  // Check if the required elements are present
-  if (!input || !iframe) {
-    console.error("Required elements not found in the DOM.");
+  // Check if the input element exists
+  if (!input) {
+    console.error("Search input not found in the DOM.");
     return;
   }
 
-  // Listen for the "keydown" event on the input element
+  // Add an event listener for the 'keydown' event
   input.addEventListener("keydown", (e) => {
     // Trigger only when the Enter key is pressed
     if (e.key === 'Enter') {
       const query = formatSearch(input.value); // Format the input value
-      iframe.src = __uv$config.prefix + __uv$config.encodeUrl(query); // Update the iframe src
+      window.location.href = __uv$config.prefix + __uv$config.encodeUrl(query); // Redirect the entire page
     }
   });
 
@@ -109,8 +108,6 @@ const __uv$config = {
   prefix: "/uv/",
   encodeUrl: (url) => btoa(url), // Replace this with your encoding method if different
 };
-
-
 
    </script>
   </body>
