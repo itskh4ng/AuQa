@@ -30,11 +30,6 @@ function devTools() {
       var hideScript = document.createElement('script');
       hideScript.innerHTML = "eruda.hide();";
       innerDoc.head.appendChild(hideScript);
-      
-      // Optionally remove the script after hiding
-      setTimeout(function() {
-        innerDoc.head.removeChild(hideScript);
-      }, 1000);  // Allow some time for Eruda to hide before removing the script tag
     }
   } else {
     console.error('Failed to access the iframe.');
