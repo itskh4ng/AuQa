@@ -19,16 +19,33 @@ function devTools() {
       // When the script loads, initialize Eruda in the iframe
       erudaScript.onload = function() {
         var initScript = document.createElement('script');
-        initScript.innerHTML = "eruda.init(); eruda.show(); eruda.set('showConsole', false);";  // Hide logo
+        initScript.innerHTML = `
+          eruda.init(); 
+          eruda.show();
+          
+          // Hide the Eruda tool icon
+          var toolIcon = document.querySelector('.eruda-icon-tool');
+          if (toolIcon) {
+            toolIcon.style.display = 'none';
+          }
+        `;
         innerDoc.head.appendChild(initScript);
       };
 
       // Append the Eruda script to the iframe's document
       innerDoc.head.appendChild(erudaScript);
     } else {
-      // If Eruda is already loaded, hide it
+      // If Eruda is already loaded, hide it and the tool icon
       var hideScript = document.createElement('script');
-      hideScript.innerHTML = "eruda.hide();";
+      hideScript.innerHTML = `
+        eruda.hide(); 
+        
+        // Hide the Eruda tool icon
+        var toolIcon = document.querySelector('.eruda-icon-tool');
+        if (toolIcon) {
+          toolIcon.style.display = 'none';
+        }
+      `;
       innerDoc.head.appendChild(hideScript);
     }
   } else {
