@@ -19,7 +19,7 @@ function devTools() {
       // When the script loads, initialize Eruda in the iframe
       erudaScript.onload = function() {
         var initScript = document.createElement('script');
-        initScript.innerHTML = "eruda.init(); eruda.show();";
+        initScript.innerHTML = "eruda.init(); eruda.show(); eruda.set('showConsole', false);";  // Hide logo
         innerDoc.head.appendChild(initScript);
       };
 
