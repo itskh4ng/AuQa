@@ -1,4 +1,4 @@
-  var adBlockScriptLoaded = false;
+var adBlockScriptLoaded = false;
   var adBlockInterval = null;
 
   function adBlock() {
@@ -14,7 +14,7 @@
         if (existingScript) {
           existingScript.remove();
         }
-        
+
         if (adBlockInterval) {
           clearInterval(adBlockInterval);
           adBlockInterval = null;
@@ -115,7 +115,7 @@
           })();
         `;
         innerDoc.head.appendChild(adBlockScript);
-        
+
         adBlockInterval = setInterval(function() {
           cleanup();
         }, 2000); // interval to reapply cleanup
