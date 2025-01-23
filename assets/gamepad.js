@@ -16,5 +16,7 @@ function displaySelectedOption() {
       t.src = "../storage/crazygames.html";
    } else if (e === "RetroBowl") {
       t.src = "https://game316009.konggames.com/gamez/0031/6009/live/index.html";
+   } else if (e === "CookieClicker") {
+      t.src = "../storage/cookieclicker.html";
    }
 }
