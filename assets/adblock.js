@@ -1,6 +1,9 @@
 var adBlockEnabled = false;
 
 function adBlock() {
+  var adBlockEnabled = false;
+
+function adBlock() {
   var siteIframe = document.getElementById('main-iframe');
   
   if (siteIframe && siteIframe.contentDocument) {
@@ -30,7 +33,7 @@ function adBlock() {
             },
             '.*\.?adinplay\.com': {
               remove: ['iframe[src*="adinplay.com"]', '.adsbygoogle', '#adinplayAd'], // Add selectors for the ad elements
-              trueRemove: true
+              trueRemove: false // Do not remove, just hide
             }
           };
 
@@ -50,11 +53,13 @@ function adBlock() {
                 let elements = document.querySelectorAll(selector);
                 elements.forEach(function(elem) {
                   if (!sites[hostname].trueRemove) {
+                    // Set display block for playing elements, hide visually while maintaining function
                     elem.style.visibility = 'hidden';
                     elem.style.width = '1px';
                     elem.style.height = '1px';
-                    elem.style.overflow = 'hidden';
-                    elem.style.opacity = 0;
+                    elem.style.position = 'absolute';
+                    elem.style.top = '-9999px'; // Move off-screen
+                    elem.style.zIndex = '-9999'; // Ensure it's hidden but still functional
                   } else {
                     elem.remove();
                   }
