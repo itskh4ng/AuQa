@@ -10,6 +10,8 @@ function displaySelectedOption() {
       t.src = "../storage/ngg.html";
    } else if (e === "Itch.IO") {
       t.src = "../storage/itch.html";
+   } else if (e === "1v1.lol") {
+      t.src = "https://1v1.lol";
    } else if (e === "CrazyGames") {
       t.src = "../storage/crazygames.html";
    } else if (e === "RetroBowl") {
