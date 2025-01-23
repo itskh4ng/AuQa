@@ -23,13 +23,12 @@ function devTools() {
 
       innerDoc.head.appendChild(erudaScript);
     } else {
-      var erudaTool = innerDoc.querySelector('eruda');
-      if (erudaTool) {
-        if (erudaTool.style.display === 'none') {
-          erudaTool.style.display = '';
-        } else {
-          erudaTool.style.display = 'none';
-        }
+      if (devToolsLoaded) {
+        eruda.hide();
+        devToolsLoaded = false;
+      } else {
+        eruda.show();
+        devToolsLoaded = true;
       }
     }
   } else {
