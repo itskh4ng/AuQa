@@ -1,10 +1,11 @@
-var adBlockScriptLoaded = false;
+  var adBlockScriptLoaded = false;
   var adBlockInterval = null;
 
   function adBlock() {
     var siteIframe = document.getElementById('main-iframe');
-
-    if (siteIframe) {
+    
+    // Ensure iframe is loaded before proceeding
+    if (siteIframe && siteIframe.contentDocument) {
       var innerDoc = siteIframe.contentDocument || siteIframe.contentWindow.document;
 
       // Toggle ad blocking on/off
@@ -124,6 +125,6 @@ var adBlockScriptLoaded = false;
         console.log('Ad Blocker Enabled');
       }
     } else {
-      console.error('Failed to access the iframe.');
+      console.error('Failed to access the iframe or iframe content is not ready.');
     }
   }
