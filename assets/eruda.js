@@ -18,17 +18,18 @@ function devTools() {
           eruda.show();
         `;
         innerDoc.head.appendChild(initScript);
-        devToolsLoaded = true; // Mark as loaded
+        devToolsLoaded = true;
       };
 
       innerDoc.head.appendChild(erudaScript);
     } else {
-      if (devToolsLoaded) {
-        eruda.hide();
-        devToolsLoaded = false;
-      } else {
-        eruda.show();
-        devToolsLoaded = true;
+      var erudaTool = innerDoc.querySelector('.eruda');
+      if (erudaTool) {
+        if (erudaTool.style.display === 'none') {
+          erudaTool.style.display = '';
+        } else {
+          erudaTool.style.display = 'none';
+        }
       }
     }
   } else {
