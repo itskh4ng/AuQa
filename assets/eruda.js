@@ -18,17 +18,20 @@ function devTools() {
           eruda.show();
         `;
         innerDoc.head.appendChild(initScript);
+        devToolsLoaded = true; // Mark as loaded
       };
 
       innerDoc.head.appendChild(erudaScript);
     } else {
-      var hideScript = document.createElement('script');
-      hideScript.innerHTML = `
+      if (devToolsLoaded) {
         eruda.hide();
-      `;
-      innerDoc.head.appendChild(hideScript);
+        devToolsLoaded = false;
+      } else {
+        eruda.show();
+        devToolsLoaded = true;
+      }
     }
   } else {
-    console.error('Failed to access the iframe.');
+    console.error('Failed.');
   }
 }
