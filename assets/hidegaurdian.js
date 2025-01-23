@@ -1,1 +1,1 @@
-document.getElementById('privacy-bubble-button').style.display = 'none';
+document.getElementById('gg-privacy-banner').style.display = 'none';
