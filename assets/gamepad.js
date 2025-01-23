@@ -10,9 +10,9 @@ function displaySelectedOption() {
       t.src = "../storage/ngg.html";
    } else if (e === "Itch.IO") {
       t.src = "../storage/itch.html";
-   } else if (e === "Bloxd.IO") {
-      t.src = "../storage/bloxd.html";
-   } else if (e === "Retro Bowl") {
+   } else if (e === "CrazyGames") {
+      t.src = "../storage/crazygames.html";
+   } else if (e === "RetroBowl") {
       t.src = "https://game316009.konggames.com/gamez/0031/6009/live/index.html";
    }
 }
