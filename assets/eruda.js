@@ -23,18 +23,10 @@ function devTools() {
 
       innerDoc.head.appendChild(erudaScript);
     } else {
-      var erudaWindow = siteIframe.contentWindow.eruda;
-
-      if (erudaWindow && erudaWindow.ui) {
-        if (devToolsLoaded) {
-          erudaWindow.ui.hide();
-          devToolsLoaded = false;
-        } else {
-          erudaWindow.ui.show();
-          devToolsLoaded = true;
-        }
+      if (eruda.style.display === 'none') {
+        eruda.style.display = 'block';
       } else {
-        console.error('Failed.');
+        eruda.style.display = 'none';
       }
     }
   } else {
