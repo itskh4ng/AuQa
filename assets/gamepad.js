@@ -11,6 +11,6 @@ function displaySelectedOption() {
    } else if (e === "itch.io") {
       t.src = "../storage/itch.html";
    } else if (e === "bloxd.io") {
-      t.src = "https://bloxd.io";
+      t.src = "../storage/bloxd.html";
    }
 }
