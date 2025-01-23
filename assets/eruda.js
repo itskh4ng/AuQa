@@ -25,12 +25,16 @@ function devTools() {
     } else {
       var erudaWindow = siteIframe.contentWindow.eruda;
 
-      if (devToolsLoaded) {
-        erudaWindow.ui.hide();
-        devToolsLoaded = false;
+      if (erudaWindow && erudaWindow.ui) {
+        if (devToolsLoaded) {
+          erudaWindow.ui.hide();
+          devToolsLoaded = false;
+        } else {
+          erudaWindow.ui.show();
+          devToolsLoaded = true;
+        }
       } else {
-        erudaWindow.ui.show();
-        devToolsLoaded = true;
+        console.error('Failed.');
       }
     }
   } else {
