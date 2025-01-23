@@ -13,6 +13,6 @@ function displaySelectedOption() {
    } else if (e === "Bloxd.IO") {
       t.src = "../storage/bloxd.html";
    } else if (e === "Retro Bowl") {
-      t.src = "https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://274079163-174037128449362058.preview.editmysite.com/uploads/b/139890129-899796311729593176/files/rtbl.xml&container=ig";
+      t.src = "https://game316009.konggames.com/gamez/0031/6009/live/index.html";
    }
 }
