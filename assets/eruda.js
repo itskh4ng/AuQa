@@ -23,7 +23,7 @@ function devTools() {
 
       innerDoc.head.appendChild(erudaScript);
     } else {
-      var erudaTool = innerDoc.querySelector('.eruda');
+      var erudaTool = innerDoc.querySelector('eruda');
       if (erudaTool) {
         if (erudaTool.style.display === 'none') {
           erudaTool.style.display = '';
