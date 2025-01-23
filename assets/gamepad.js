@@ -6,5 +6,5 @@ function displaySelectedOption() {
    e === "now.gg" ? t.src = "../storage/nowgg.html" : 
    e === "ngg.lol" ? t.src = "../storage/ngg.html" : 
    e === "itch.io" ? t.src = "../storage/itch.html" : 
-   e === "bloxd.io" && (t.src = "//bloxd.io");
+   e === "bloxd.io" && (t.src = "https://bloxd.io");
 }
