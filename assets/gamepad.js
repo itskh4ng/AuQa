@@ -11,7 +11,7 @@ function displaySelectedOption() {
    } else if (e === "Itch.IO") {
       t.src = "../storage/itch.html";
    } else if (e === "1v1.lol") {
-      t.src = "https://1v1.lol";
+      t.src = "hhttps://education76.github.io/g77/1v1-lol-3/";
    } else if (e === "CrazyGames") {
       t.src = "../storage/crazygames.html";
    } else if (e === "RetroBowl") {
