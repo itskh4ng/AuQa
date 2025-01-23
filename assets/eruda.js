@@ -23,11 +23,13 @@ function devTools() {
 
       innerDoc.head.appendChild(erudaScript);
     } else {
+      var erudaWindow = siteIframe.contentWindow.eruda;
+
       if (devToolsLoaded) {
-        eruda.hide();
+        erudaWindow.ui.hide();
         devToolsLoaded = false;
       } else {
-        eruda.show();
+        erudaWindow.ui.show();
         devToolsLoaded = true;
       }
     }
