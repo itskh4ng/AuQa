@@ -1,5 +1,4 @@
-  var adBlockScriptLoaded = false;
-  var adBlockInterval = null;
+var adBlockScriptLoaded = false; // Keeps track of whether the ad block script is loaded
 
   function adBlock() {
     var siteIframe = document.getElementById('main-iframe');
@@ -7,24 +6,19 @@
     // Ensure iframe is loaded before proceeding
     if (siteIframe && siteIframe.contentDocument) {
       var innerDoc = siteIframe.contentDocument || siteIframe.contentWindow.document;
-
+      
       // Toggle ad blocking on/off
       if (adBlockScriptLoaded) {
-        // If ad blocking is already active, remove the script and stop interval
+        // If ad blocking is already active, remove the script
         var existingScript = innerDoc.querySelector('script#adBlockScript');
         if (existingScript) {
           existingScript.remove();
         }
 
-        if (adBlockInterval) {
-          clearInterval(adBlockInterval);
-          adBlockInterval = null;
-        }
-
-        adBlockScriptLoaded = false;
+        adBlockScriptLoaded = false; // Mark the adBlock as disabled
         console.log('Ad Blocker Disabled');
       } else {
-        // If ad blocking is not active, inject the script and start interval
+        // If ad blocking is not active, inject the script
         var adBlockScript = document.createElement('script');
         adBlockScript.id = 'adBlockScript';
         adBlockScript.innerHTML = `
@@ -117,11 +111,7 @@
         `;
         innerDoc.head.appendChild(adBlockScript);
 
-        adBlockInterval = setInterval(function() {
-          cleanup();
-        }, 2000); // interval to reapply cleanup
-
-        adBlockScriptLoaded = true;
+        adBlockScriptLoaded = true; // Mark the adBlock as enabled
         console.log('Ad Blocker Enabled');
       }
     } else {
