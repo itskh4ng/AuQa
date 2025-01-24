@@ -6,8 +6,8 @@ function displaySelectedOption() {
       t.src = "../storage/geforce.html";
    } else if (e === "Now.GG") {
       t.src = "../storage/nowgg.html";
-   } else if (e === "NGG.LOL") {
-      t.src = "../storage/ngg.html";
+   } else if (e === "EASYFUN") {
+      t.src = "../storage/easyfun.html";
    } else if (e === "Itch.IO") {
       t.src = "../storage/itch.html";
    } else if (e === "1v1.lol") {
