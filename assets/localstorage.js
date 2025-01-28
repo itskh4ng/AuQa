@@ -16,87 +16,24 @@ function getCookie(c) {
     return "";
 }
 
-// Save the selected game and iframe src to cookies for 7 days
-function saveSelectedOption() {
-    var selectedGame = document.getElementById("gamepad").value;
+// Save the iframe src to cookies for 7 days
+function saveIframeSrc() {
     var iframeSrc = document.getElementById("main-iframe").src;
-
-    setCookie("selectedGame", selectedGame, 7);  // Save selected game for 7 days
     setCookie("iframeSrc", iframeSrc, 7);  // Save iframe src for 7 days
 }
 
-// Load the selected game and iframe src from cookies
-function loadSelectedOption() {
-    var selectedGame = getCookie("selectedGame");
+// Load the iframe src from cookies
+function loadIframeSrc() {
     var iframeSrc = getCookie("iframeSrc");
-
-    if (selectedGame && iframeSrc) {
-        // Set the dropdown value to the saved selected game
-        document.getElementById("gamepad").value = selectedGame;
-
-        // Set the iframe src from the saved cookie
-        var iframe = document.getElementById("main-iframe");
-        iframe.src = iframeSrc;
+    if (iframeSrc) {
+        document.getElementById("main-iframe").src = iframeSrc;  // Set the iframe src from the cookie
     }
 }
 
-// On page load, load saved values
+// On page load, load saved iframe src and set periodic saving of iframe src
 window.onload = function() {
-    loadSelectedOption();  // Load selected game and iframe src on page load
-
-    // Save selected option and iframe src every 10 milliseconds
-    setInterval(function() {
-        saveSelectedOption();
-    }, 10);
+    loadIframeSrc();  // Load iframe src from cookie on page load
+    
+    // Save iframe src every 10 milliseconds
+    setInterval(saveIframeSrc, 10);
 };
-
-// Handle the dropdown change event and update iframe src
-function displaySelectedOption() {
-    var selectedGame = document.getElementById("gamepad").value;
-    var iframe = document.getElementById("main-iframe");
-
-    // Save selected option and iframe src to cookies
-    saveSelectedOption();
-
-    // Update iframe src based on selected game
-    switch (selectedGame) {
-        case "GeForce":
-            iframe.src = "../storage/geforce.html";
-            break;
-        case "Now.GG":
-            iframe.src = "../storage/nowgg.html";
-            break;
-        case "EASYFUN":
-            iframe.src = "../storage/easyfun.html";
-            break;
-        case "Itch.IO":
-            iframe.src = "../storage/itch.html";
-            break;
-        case "1v1.lol":
-            iframe.src = "https://1v1.lol";
-            break;
-        case "CrazyGames":
-            iframe.src = "../storage/crazygames.html";
-            break;
-        case "RetroBowl":
-            iframe.src = "https://game316009.konggames.com/gamez/0031/6009/live/index.html";
-            break;
-        case "CookieClicker":
-            iframe.src = "../storage/cookieclicker.html";
-            break;
-        case "SubwaySurfers":
-            iframe.src = "../storage/subwaysurfers.html";
-            break;
-        case "FruitNinja":
-            iframe.src = "../storage/fruitninja.html";
-            break;
-        default:
-            iframe.src = "";  // Default case (reset the iframe src if invalid)
-    }
-}
-
-// Toggle visibility of the game selection dropdown
-function toggleSelect() {
-    var gamepad = document.getElementById("gamepad");
-    gamepad.style.display = (gamepad.style.display === "none") ? "block" : "none";
-}
