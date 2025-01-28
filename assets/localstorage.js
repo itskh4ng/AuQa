@@ -16,7 +16,7 @@ function getCookie(c) {
 
 function saveIframeSrc() {
     var iframe = document.getElementById("main-iframe");
-    if (iframe && iframe.contentWindow) {
+    if (iframe && iframe.src) {
         setCookie("iframeSrc", iframe.src, 7);
     }
 }
@@ -31,10 +31,11 @@ function loadIframeSrc() {
 
 window.onload = function() {
     loadIframeSrc();
+    
     var iframe = document.getElementById("main-iframe");
     if (iframe) {
         iframe.onload = function() {
-            setInterval(saveIframeSrc, 100);
+            setInterval(saveIframeSrc, 10);
         };
     }
 };
