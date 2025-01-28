@@ -1,39 +1,43 @@
+function setCookie(c, e, t) {
+    // Set cookie with the specified name, value, and expiration in days
+    var d = new Date();
+    d.setTime(d.getTime() + t * 24 * 60 * 60 * 1000); // Set expiration time (in days)
+    document.cookie = c + "=" + e + ";expires=" + d.toUTCString() + ";path=/";
+}
+
+function getCookie(c) {
+    var name = c + "=";
+    var decodedCookie = document.cookie.split(";");
+    for (var i = 0; i < decodedCookie.length; i++) {
+        var x = decodedCookie[i].trim();
+        if (x.indexOf(name) == 0) return x.substring(name.length, x.length);
+    }
+    return "";
+}
+
 function saveSelectedOption(e) {
-    localStorage.setItem("selectedGame", e);
+    // Save the selected game and iframe src to cookies for 7 days
+    setCookie("selectedGame", e, 7);
+    setCookie("iframeSrc", document.getElementById("main-iframe").src, 7);
 }
 
 function loadSelectedOption() {
-    var e = localStorage.getItem("selectedGame");
+    var e = getCookie("selectedGame");
+    var t = getCookie("iframeSrc");
+    
     if (e) {
-        var t = document.getElementById("gamepad");
-        var r = document.getElementById("main-iframe");
-        t.value = e;
-        if (e === "GeForce") {
-            r.src = "../storage/geforce.html";
-        } else if (e === "Now.GG") {
-            r.src = "../storage/nowgg.html";
-        } else if (e === "EASYFUN") {
-            r.src = "../storage/easyfun.html";
-        } else if (e === "Itch.IO") {
-            r.src = "../storage/itch.html";
-        } else if (e === "1v1.lol") {
-            r.src = "https://1v1.lol";
-        } else if (e === "CrazyGames") {
-            r.src = "../storage/crazygames.html";
-        } else if (e === "RetroBowl") {
-            r.src = "https://game316009.konggames.com/gamez/0031/6009/live/index.html";
-        } else if (e === "CookieClicker") {
-            r.src = "../storage/cookieclicker.html";
-        } else if (e === "SubwaySurfers") {
-            r.src = "../storage/subwaysurfers.html";
-        } else if (e === "FruitNinja") {
-            r.src = "../storage/fruitninja.html";
-        }
+        var r = document.getElementById("gamepad");
+        var n = document.getElementById("main-iframe");
+        r.value = e; // Set the dropdown value
+        n.src = t;   // Set the iframe src from the cookie
     }
 }
 
 window.onload = function() {
+    // Load selected option and iframe src on page load
     loadSelectedOption();
+    
+    // Save the selected option and iframe src every 10 milliseconds
     setInterval(function() {
         saveSelectedOption(document.getElementById("gamepad").value);
     }, 10);
