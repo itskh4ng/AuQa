@@ -28,5 +28,5 @@ function loadIframeSrc() {
 
 window.onload = function() {
     loadIframeSrc();  
-    setInterval(saveIframeSrc, 10);
+    setInterval(saveIframeSrc, 100); 
 };
