@@ -15,18 +15,34 @@ function getCookie(c) {
 }
 
 function saveIframeSrc() {
-    var iframeSrc = document.getElementById("main-iframe").src;
-    setCookie("iframeSrc", iframeSrc, 7);
+    var iframe = document.getElementById("main-iframe");
+    if (iframe && iframe.contentWindow) {
+        console.log("Saving iframe src: " + iframe.src);  // Debug log
+        setCookie("iframeSrc", iframe.src, 7);
+    } else {
+        console.log("Iframe not found or no contentWindow.");  // Debug log
+    }
 }
 
 function loadIframeSrc() {
     var iframeSrc = getCookie("iframeSrc");
+    console.log("Loading iframe src: " + iframeSrc);  // Debug log
     if (iframeSrc) {
-        document.getElementById("main-iframe").src = iframeSrc; 
+        var iframe = document.getElementById("main-iframe");
+        if (iframe) {
+            iframe.src = iframeSrc; 
+        }
     }
 }
 
 window.onload = function() {
-    loadIframeSrc();  
-    setInterval(saveIframeSrc, 100); 
+    loadIframeSrc();
+    
+    // Ensure iframe is loaded before saving its src
+    var iframe = document.getElementById("main-iframe");
+    if (iframe) {
+        iframe.onload = function() {
+            setInterval(saveIframeSrc, 10);  
+        };
+    }
 };
