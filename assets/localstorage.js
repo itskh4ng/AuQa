@@ -24,21 +24,25 @@ function saveSelectedOption(e) {
 
 // Load the selected game and iframe src from cookies
 function loadSelectedOption() {
-    var e = getCookie("selectedGame");
-    var t = getCookie("iframeSrc");
-    
-    if (e) {
-        var r = document.getElementById("gamepad");
-        var n = document.getElementById("main-iframe");
-        r.value = e;  // Set the dropdown value
-        n.src = t;    // Set the iframe src from the cookie
+    var selectedGame = getCookie("selectedGame");
+    var iframeSrc = getCookie("iframeSrc");
+
+    if (selectedGame) {
+        // Set the selected value in the dropdown
+        document.getElementById("gamepad").value = selectedGame;
+
+        // Set the iframe src from the cookie
+        var iframe = document.getElementById("main-iframe");
+        if (iframeSrc) {
+            iframe.src = iframeSrc;
+        }
     }
 }
 
 // On page load, load saved values and set periodic saving of selected option
 window.onload = function() {
     loadSelectedOption();  // Load selected game and iframe src on page load
-    
+
     // Save selected option and iframe src every 10 milliseconds
     setInterval(function() {
         saveSelectedOption(document.getElementById("gamepad").value);
@@ -47,30 +51,33 @@ window.onload = function() {
 
 // Handle the dropdown change event and update iframe src
 function displaySelectedOption() {
-    saveSelectedOption(document.getElementById("gamepad").value);
-    var e = document.getElementById("gamepad").value;
-    var t = document.getElementById("main-iframe");
+    var selectedGame = document.getElementById("gamepad").value;
+    var iframe = document.getElementById("main-iframe");
 
-    if (e === "GeForce") {
-        t.src = "../storage/geforce.html";
-    } else if (e === "Now.GG") {
-        t.src = "../storage/nowgg.html";
-    } else if (e === "EASYFUN") {
-        t.src = "../storage/easyfun.html";
-    } else if (e === "Itch.IO") {
-        t.src = "../storage/itch.html";
-    } else if (e === "1v1.lol") {
-        t.src = "https://1v1.lol";
-    } else if (e === "CrazyGames") {
-        t.src = "../storage/crazygames.html";
-    } else if (e === "RetroBowl") {
-        t.src = "https://game316009.konggames.com/gamez/0031/6009/live/index.html";
-    } else if (e === "CookieClicker") {
-        t.src = "../storage/cookieclicker.html";
-    } else if (e === "SubwaySurfers") {
-        t.src = "../storage/subwaysurfers.html";
-    } else if (e === "FruitNinja") {
-        t.src = "../storage/fruitninja.html";
+    // Save selected option and iframe src to cookies
+    saveSelectedOption(selectedGame);
+
+    // Update iframe src based on selected game
+    if (selectedGame === "GeForce") {
+        iframe.src = "../storage/geforce.html";
+    } else if (selectedGame === "Now.GG") {
+        iframe.src = "../storage/nowgg.html";
+    } else if (selectedGame === "EASYFUN") {
+        iframe.src = "../storage/easyfun.html";
+    } else if (selectedGame === "Itch.IO") {
+        iframe.src = "../storage/itch.html";
+    } else if (selectedGame === "1v1.lol") {
+        iframe.src = "https://1v1.lol";
+    } else if (selectedGame === "CrazyGames") {
+        iframe.src = "../storage/crazygames.html";
+    } else if (selectedGame === "RetroBowl") {
+        iframe.src = "https://game316009.konggames.com/gamez/0031/6009/live/index.html";
+    } else if (selectedGame === "CookieClicker") {
+        iframe.src = "../storage/cookieclicker.html";
+    } else if (selectedGame === "SubwaySurfers") {
+        iframe.src = "../storage/subwaysurfers.html";
+    } else if (selectedGame === "FruitNinja") {
+        iframe.src = "../storage/fruitninja.html";
     }
 }
 
