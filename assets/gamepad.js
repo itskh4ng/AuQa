@@ -20,5 +20,7 @@ function displaySelectedOption() {
       t.src = "../storage/cookieclicker.html";
    } else if (e === "SubwaySurfers") {
       t.src = "../storage/subwaysurfers.html";
+   } else if (e === "FruitNinja") {
+      t.src = "../storage/fruitninja.html";
    }
 }
