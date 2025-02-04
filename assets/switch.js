@@ -19,7 +19,8 @@ function handleIframe() {
   if (iframe) {
     const iframeSrc = iframe.getAttribute("src");
 
-    if (iframeSrc === "https://staging.bloxd.io") {
+    // Check if the iframe src contains 'staging.bloxd.io'
+    if (iframeSrc.includes("staging.bloxd.io")) {
       iframe.setAttribute("src", "../assets/loading.html");
     }
   }
