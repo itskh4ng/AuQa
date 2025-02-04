@@ -2,7 +2,7 @@ async function checkStatusAndUpdateIframe() {
     try {
         const response = await fetch('../assets/switch.json');
         if (!response.ok) {
-            console.error("Failed to load switch.json");
+            alert("Failed to load switch.json");
             return;
         }
         const data = await response.json();
