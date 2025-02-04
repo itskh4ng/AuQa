@@ -41,4 +41,4 @@ function handleIframe() {
 }
 
 // Call the loadSwitchStatus function every second (1000 milliseconds)
-setInterval(loadSwitchStatus, 1000);
+setInterval(loadSwitchStatus, 3000);
