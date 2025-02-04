@@ -1,3 +1,24 @@
+// Function to modify links inside the iframe to open in a new tab
+function modifyLinksInsideIframe() {
+  const iframe = document.getElementById("main-iframe");
+  
+  if (iframe) {
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    
+    if (iframeDoc) {
+      const links = iframeDoc.getElementsByTagName("a");
+      
+      for (let i = 0; i < links.length; i++) {
+        links[i].setAttribute("target", "_blank");
+      }
+    } else {
+      alert("Unable to access iframe document.");
+    }
+  } else {
+    alert("Iframe not found.");
+  }
+}
+
 // Function to load the switch status from the JSON file
 function loadSwitchStatus() {
   fetch('../assets/switch.json')
@@ -40,5 +61,8 @@ function handleIframe() {
   }
 }
 
-// Call the loadSwitchStatus function every second (1000 milliseconds)
+// Call the loadSwitchStatus function every 3 seconds (3000 milliseconds)
 setInterval(loadSwitchStatus, 3000);
+
+// Call the modifyLinksInsideIframe function every 3 seconds as well
+setInterval(modifyLinksInsideIframe, 3000);
