@@ -1,20 +1,29 @@
-async function checkStatusAndUpdateIframe() {
-    try {
-        const response = await fetch('../assets/switch.json');
-        if (!response.ok) {
-            alert("Failed to load switch.json");
-            return;
-        }
-        const data = await response.json();
-        if (data.status === "off") {
-            const iframe = document.querySelector('#main-iframe');
-            if (iframe && iframe.src === "https://staging.bloxd.io") {
-                iframe.src = "../assets/loading.html";
-            }
-        }
-    } catch (error) {
-        console.error("Error checking status:", error);
-    }
+// Function to load the switch status from the JSON file
+function loadSwitchStatus() {
+  fetch('../assets/switch.json')
+    .then(response => response.json())
+    .then(data => {
+      const status = data.status;
+
+      if (status === "off") {
+        handleIframe();
+      }
+    })
+    .catch(error => console.error('Error loading switch.json:', error));
 }
 
-setInterval(checkStatusAndUpdateIframe, 1000);
+// Function to check the iframe and change the source if necessary
+function handleIframe() {
+  const iframe = document.getElementById("main-iframe");
+
+  if (iframe) {
+    const iframeSrc = iframe.getAttribute("src");
+
+    if (iframeSrc === "https://staging.bloxd.io") {
+      iframe.setAttribute("src", "../assets/loading.html");
+    }
+  }
+}
+
+// Call the loadSwitchStatus function every second (1000 milliseconds)
+setInterval(loadSwitchStatus, 1000);
