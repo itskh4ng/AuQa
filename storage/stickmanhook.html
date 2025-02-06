@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .search-container {
+            display: none;
+        }
+    </style> 
+</head>
+
+<body>
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="container-inner">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" class="input" placeholder="Search through the web freely...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../uv/uv.bundle.js"></script>
+    <script src="../uv/uv.config.js"></script>
+    <script src="../assets/register-sw.js"></script>
+    <script src="../assets/script.js" defer></script>
+    
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                var inputField = document.querySelector('.input');
+                inputField.value = "stickman.pro/iframe/index.html";
+                inputField.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+            }, 10);
+        };
+    </script>
+
+</body>
+
+</html>
