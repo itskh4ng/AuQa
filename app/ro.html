@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Auqa</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="name" content="AuQa">
+    <meta name="description" content="Surf with AuQa, the next gen proxy.">
+    <script src="../uv/uv.bundle.js"></script>
+    <script src="../uv/uv.config.js"></script>
+    <script src="../assets/register-sw.js"></script>
+    <script src="../assets/ro.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-logo"></div>
+      <div class="nav-controls">
+        <button class="nav-button" onclick="goBack()"><i class="fas fa-chevron-left"></i></button>
+        <button class="nav-button" onclick="goForward()"><i class="fas fa-chevron-right"></i></button> 
+      </div>
+      <div class="search-bar">
+        <input id="search-input" type="text" placeholder="Search or Enter a Web Address" />
+      </div>
+      <button class="nav-button"><i class="fa-solid fa-rotate-right"></i></button>
+      <button class="nav-button"><i class="fa-solid fa-puzzle-piece"></i></button>
+    </nav>
+
+    <aside class="sidebar">
+      
+      <button class="sidebar-icon active" onclick="location.href='tiktok.html'" type="button">
+        <i class="fa-brands fa-tiktok"></i>
+      </button>
+      
+      <button class="sidebar-icon" onclick="location.href='shuttle.html'" type="button">
+        <i class="fa-solid fa-rocket"></i>
+      </button>
+      
+      <button class="sidebar-icon" onclick="location.href='../index.html'" type="button">
+        <i class="fas fa-compass"></i>
+      </button>
+      
+      <button class="sidebar-icon" onclick="location.href='gamepad.html'" type="button">
+        <i class="fa-solid fa-gamepad"></i>
+      </button>
+      
+      <button class="sidebar-icon" onclick="location.href='discord.html'" type="button">
+        <i class="fa-brands fa-discord"></i>
+      </button>
+      
+    </aside>
+
+    <main class="main-content">
+      <iframe id="main-iframe" src="../storage/ngglol.html" style="position: absolute; top: 100px; left: 100px; right: 0; bottom: 0; width: calc(100% - 100px); height: calc(100% - 100px); border: none; border-radius: 24px 0 0 0;"></iframe>
+      <button id="fullscreen-btn" onclick="toggleFullscreen()" style="position: absolute; bottom: 20px; right: 20px; background: transparent; border: none; cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" opacity="0.4"><path d="M2 9V6.5C2 4.01 4.01 2 6.5 2H9M15 2h2.5C19.99 2 22 4.01 22 6.5V9M22 16v1.5c0 2.49-2.01 4.5-4.5 4.5H16M9 22H6.5C4.01 22 2 19.99 2 17.5V15" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+      <script src="../assets/fullscreen.js"></script>
+    </main>
+    
+    <script>
+      function goBack() {
+        window.history.back(); 
+      }
+
+      function goForward() {
+        window.history.forward(); 
+      }
+
+      function navigateTo() {
+        const url = document.getElementById("search-input").value;
+        if (url) {
+          window.location.href = url;  
+        }
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
